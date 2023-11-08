@@ -1,0 +1,21 @@
+Student Attendance Mgmnt
+
+Mat-table
+Mat-Paginator
+sidenav
+Toolbar for Nav
+Spinner for while loading
+
+endpoints:
+/home
+table with all students
+utilities:
+view attendance
+edit student details [Reactive form]
+Delete student [delete student at /student endpoint]
+
+/student/{id}
+Show all attendance of that student
+
+/add-attendance/
+take reactive form, details for student-roll dropdown, date, status - P/A 
