@@ -1,0 +1,33 @@
+<mat-toolbar color="primary">
+  <button mat-icon-button (click)="sidenav.toggle()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>My App</span>
+</mat-toolbar>
+
+<mat-sidenav-container class="mat-elevation-z8" style="height: 100%;">
+  <mat-sidenav #sidenav mode="side" opened="true">
+    <mat-nav-list style="min-width: 10vw;"  >
+      
+        <a routerLink="/" class="ms-2 me-2 mt-2 mb-2 d-flex justify-content-between text-decoration-none text-light">
+            <mat-icon> home </mat-icon>
+            <p class="text-center w-75 mt-1">Home</p>
+        </a>
+        <a routerLink="/students" class="ms-2 me-2 mt-2 mb-2 d-flex justify-content-between text-decoration-none text-light">
+          <mat-icon>perm_identity</mat-icon>
+          <p class="text-center w-75">Add Student</p>
+        </a>
+        <a routerLink="/attendance" class="ms-2 me-2 mt-2 mb-2 d-flex justify-content-between text-decoration-none text-light" >
+          <mat-icon>assignment</mat-icon>
+          <p class="text-center w-75">Add Attendance</p>
+        </a>
+        <a routerLink="/attendance" class="ms-2 me-2 mt-2 mb-2 d-flex justify-content-between text-decoration-none text-light" >
+          <mat-icon>dashboard</mat-icon>
+          <p class="text-center w-75">All Records</p>
+        </a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <router-outlet></router-outlet>
+
+</mat-sidenav-container>

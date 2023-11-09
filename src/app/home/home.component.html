@@ -1,0 +1,46 @@
+<p>home works!</p>
+
+
+<mat-form-field>
+    <input (keyup)="applyFilter($event)" matInput placeholder="filter">
+  </mat-form-field>
+
+  <div class="mat-elevation-z8 m-5">
+
+    <mat-table [dataSource]="dataSource"  matSort>
+      <!-- Position Column -->
+      <ng-container matColumnDef="roll">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Roll No. </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+      </ng-container>
+    
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Student Name </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+      </ng-container>
+    
+      <!-- Weight Column -->
+      <ng-container matColumnDef="email">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Student Email </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.email}} </mat-cell>
+      </ng-container>
+    
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="test">
+        <mat-header-cell *matHeaderCellDef> Test </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <!-- {{ element.id }} -->
+          <button type="button" class="btn btn-primary" (click)="viewStud(element.id)">View</button>
+          <button type="button" class="btn btn-warning">Edit</button>
+          <button type="button" class="btn btn-danger">Delete</button>
+        </mat-cell>
+      </ng-container>
+    
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row  *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      <!-- (click)="logData(row)" -->
+    </mat-table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 15]" showFirstLastButtons></mat-paginator>
+  </div>
+

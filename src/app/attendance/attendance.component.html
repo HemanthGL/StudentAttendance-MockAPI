@@ -1,0 +1,43 @@
+<p>attendance works!</p>
+<div class="container-fluid d-flex justify-content-center align-items-center bg-dark vh-100 pt-5 ">
+    <div class="backg pt-5 ps-4 pe-4 pb-5 text-center mt-5 rounded">
+        <p class="display-4 text-light">Add Attendance</p>
+        <form class="mt-5 ms-4 me-4 text-start" [formGroup] = "registerF">
+            <div class="mt-5 mb-4">
+                <label for="studName" class="h4">Student</label>
+                <select name="studName" id="" formControlName="id">
+                    <option value="">-- Select ---</option>
+                    <option *ngFor="let item of students" value="{{item.id}}">{{item.id}} - {{item.name}}</option>
+                </select>
+                <!-- <input type="text" name="uname" formControlName = "userName"class="form-control">
+                <div style="color: red;" *ngIf="registerF.get('userName')?.dirty && registerF.get('userName')?.errors?.['minlength']">Username Invalid [Min. Length = 4]</div>
+                <div style="color: red;" *ngIf="registerF.get('userName')?.dirty && registerF.get('userName')?.errors?.['maxlength']">Username Invalid [Min. Length = 4]</div> -->
+            </div>
+
+    
+            <div class="mb-4">
+                <label for="dateN" class="h4">Date</label>
+                <input type="date" name="dateN" formControlName="date" class="form-control">
+                <!-- <div style="color: red;" *ngIf="registerF.get('password')?.dirty && registerF.get('password')?.errors?.['minlength']">Password Invalid [Min. 8 character required]</div> -->
+            </div>
+
+            <div class="mb-4">
+                <label for="status" class="h4">Status</label>
+                <select name="status" id="" formControlName="status">
+                    <option value="">-- Select ---</option>
+                    <option value="true">Present</option>
+                    <option value="false">Absent</option>
+                </select>
+                <!-- <input type="password" name="pwd" formControlName="confirmPwd" class="form-control">
+                <div style="color: red;" *ngIf="registerF.get('confirmPwd')?.dirty && registerF.get('confirmPwd')?.errors?.['minlength']">Password Invalid [Min. 8 character required]</div> -->
+            </div>
+    
+            <div style="color: red;" *ngIf="registerF.errors?.['confirm'] && registerF.get('confirmPwd')?.dirty">Passwords Don't Match</div>
+            
+
+            <div class="submit text-center mt-5 pt-5">
+                <input type="button" [disabled] = "registerF.invalid" value="Submit" class="btn btn-light btn-xxl" (click)="onSubmit($event)">
+            </div>
+        </form>
+    </div>
+</div>

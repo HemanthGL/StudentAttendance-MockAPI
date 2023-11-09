@@ -1,0 +1,35 @@
+<p>students works!</p>
+
+<div class="container-fluid d-flex justify-content-center align-items-center bg-dark vh-100 pt-5 ">
+  <div class="backg pt-5 ps-4 pe-4 pb-5 text-center mt-5 rounded">
+      <p class="display-4 text-light">Add New Student</p>
+      <form class="mt-5 ms-4 me-4 text-start" [formGroup] = "registerStud">
+          <div class="mt-5 mb-4">
+              <label for="uname" class="h4">Student Name</label>
+              <input type="text" name="uname" formControlName = "studName"class="form-control">
+              <div style="color: red;" *ngIf="registerStud.get('studName')?.dirty && registerStud.get('studName')?.errors?.['minlength']">Username Invalid [Min. Length = 4]</div>
+              <div style="color: red;" *ngIf="registerStud.get('studName')?.dirty && registerStud.get('studName')?.errors?.['maxlength']">Username Invalid [Max. Length = 10]</div>
+          </div>
+
+  
+          <div class="mb-4">
+              <label for="pwd" class="h4">Email</label>
+              <input type="email" name="pwd" formControlName="email" class="form-control">
+              <!-- <div style="color: red;" *ngIf="registerF.get('password')?.dirty && registerF.get('password')?.errors?.['minlength']">Password Invalid [Min. 8 character required]</div> -->
+          </div>
+
+          <!-- <div class="mb-4">
+              <label for="roll" class="h4">Roll</label>
+              <input type="number" name="roll" formControlName="roll" class="form-control"> -->
+              <!-- <div style="color: red;" *ngIf="registerF.get('confirmPwd')?.dirty && registerF.get('confirmPwd')?.errors?.['minlength']">Password Invalid [Min. 8 character required]</div> -->
+          <!-- </div> -->
+  
+          <!-- <div style="color: red;" *ngIf="registerF.errors?.['confirm'] && registerF.get('confirmPwd')?.dirty">Passwords Don't Match</div> -->
+          
+
+          <div class="submit text-center mt-5 pt-5">
+              <input type="button" [disabled] = "registerStud.invalid" value="Add" class="btn btn-light btn-xxl" (click)="onSubmit($event)">
+          </div>
+      </form>
+  </div>
+</div>
